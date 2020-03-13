@@ -56,7 +56,7 @@ export function setupURLParams(paramsObject) {
 		paramsObject = {}
 	}
 	if (paramsObject.apikey === undefined) {
-		paramsObject.apikey = environmentvars.TICKETMASTER_API_KEY
+		paramsObject.apikey = window.TICKETMASTER_API_KEY
 	}
 	return serialize(paramsObject)
 }

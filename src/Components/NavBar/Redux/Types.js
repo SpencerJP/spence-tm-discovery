@@ -1,1 +1,0 @@
-export const NAVBAR_SWITCH_TABS = "NAVBAR_SWITCH_TABS"

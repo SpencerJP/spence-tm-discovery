@@ -1,3 +1,3 @@
 import { types } from "./Redux"
-
-export { types }
+import { EventView } from "./EventView"
+export { types, EventView }

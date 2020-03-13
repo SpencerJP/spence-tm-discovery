@@ -61,7 +61,6 @@ export class ResponsiveNavbar extends Component {
 	render() {
 		const { children, leftItems, rightItems } = this.props
 		const { visible } = this.state
-
 		return (
 			<div>
 				<Responsive {...Responsive.onlyMobile}>

@@ -7,7 +7,7 @@ export const urls = {
 
 export function fetchEventList(params) {
 	const paramsString = setupURLParams(params)
-	const requestURL = `${environmentvars.TICKETMASTER_API_URL}${urls.eventList}${paramsString}`
+	const requestURL = `${window.TICKETMASTER_API_URL}${urls.eventList}${paramsString}`
 	return GETRequest(requestURL, GET_EVENTLIST_DATA)
 }
 
