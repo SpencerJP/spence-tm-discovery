@@ -2,7 +2,7 @@ import { GETRequest, setupURLParams } from "../../../Redux/Actions/HttpRequests"
 import { GET_EVENTLIST_DATA, EVENTLIST_LOADING_STATUS, SET_EVENTSLIST_NUMBER_OF_PAGES } from "./Types"
 
 export const urls = {
-	eventList: "/events.json?",
+	eventList: "/events.json",
 }
 
 export function fetchEventList(params) {

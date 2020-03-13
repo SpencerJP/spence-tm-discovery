@@ -1,4 +1,5 @@
 import { GET_REQUEST_ERROR, JSON_PARSE_ERROR } from "./ErrorTypes"
+import { serialize } from "./serializeToURLParams"
 /**
  * @param {string} targetURL The url that you are fetching the data from.
  * @param {string} type the type that the reducer will be using to determine the action.
@@ -32,7 +33,7 @@ export function GETRequest(targetURL, type, optional_dataAccessorFunc) {
 				type: JSON_PARSE_ERROR,
 				payload: `JSON Parse Error in ${type}: ${err}`,
 			})
-			return "done"  // end promise
+			return "done" // end promise
 		}
 		try {
 			dispatch({
@@ -48,4 +49,14 @@ export function GETRequest(targetURL, type, optional_dataAccessorFunc) {
 		}
 		return "done"
 	}
+}
+
+export function setupURLParams(paramsObject) {
+	if (!paramsObject) {
+		paramsObject = {}
+	}
+	if (paramsObject.apikey === undefined) {
+		paramsObject.apikey = environmentvars.TICKETMASTER_API_KEY
+	}
+	return serialize(paramsObject)
 }

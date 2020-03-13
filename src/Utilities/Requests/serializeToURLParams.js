@@ -4,5 +4,5 @@ export function serialize(object) {
 		if (Object.prototype.hasOwnProperty.call(object, p)) {
 			str.push(encodeURIComponent(p) + "=" + encodeURIComponent(object[p]))
 		}
-	return str.join("&")
+	return "?" + str.join("&")
 }
