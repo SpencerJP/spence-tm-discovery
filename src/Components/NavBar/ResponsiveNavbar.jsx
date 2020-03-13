@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from "react"
-import { Container, Icon, Image, Menu, Sidebar, Responsive } from "semantic-ui-react"
+import { Container, Icon, Menu, Sidebar, Responsive } from "semantic-ui-react"
 
 const NavBarMobile = ({ children, items, onPusherClick, onToggle, visible, logo, inverted }) => (
 	<Sidebar.Pushable>
