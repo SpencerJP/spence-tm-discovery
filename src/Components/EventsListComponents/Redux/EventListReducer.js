@@ -7,7 +7,7 @@ import {
 
 const initialState = {
 	eventListData: null,
-	isLoading: false,
+	isLoading: true,
 	userLocation: null,
 	numberOfPages: null,
 }

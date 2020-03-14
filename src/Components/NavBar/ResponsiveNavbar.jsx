@@ -10,22 +10,13 @@ import React, { Component } from "react"
 import { Container, Icon, Menu, Sidebar, Responsive } from "semantic-ui-react"
 import { useSearchMenu } from "./useSearchMenu"
 
-const SidebarMenu = ({ items }) => {
-	return <Menu>{items.menuItems}</Menu>
-}
-
 const NavBarMobile = ({ children, menuItems, onPusherClick, onToggle, visible, logo, inverted }) => {
 	const searchMenu = useSearchMenu()
 	return (
 		<Sidebar.Pushable>
-			<Sidebar
-				as={SidebarMenu}
-				icon="labeled"
-				items={menuItems}
-				animation="overlay"
-				vertical
-				visible={visible}
-			/>
+			<Sidebar as={Menu} icon="labeled" animation="overlay" vertical visible={visible} inverted={inverted}>
+				{menuItems.menuItems}
+			</Sidebar>
 			<Sidebar.Pusher dimmed={visible} onClick={onPusherClick} style={{ minHeight: "100vh" }}>
 				<Menu fixed="top" inverted={inverted}>
 					{logo}
@@ -83,7 +74,7 @@ export class ResponsiveNavbar extends Component {
 		const { visible } = this.state
 		return (
 			<div style={style}>
-				<Responsive {...Responsive.onlyMobile}>
+				<Responsive maxWidth={Responsive.onlyTablet.minWidth - 1}>
 					<NavBarMobile
 						menuItems={{ menuItems }}
 						onPusherClick={this.handlePusher}
