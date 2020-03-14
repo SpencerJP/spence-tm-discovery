@@ -8,42 +8,62 @@
 
 import React, { Component } from "react"
 import { Container, Icon, Menu, Sidebar, Responsive } from "semantic-ui-react"
+import { useSearchMenu } from "./useSearchMenu"
 
-const NavBarMobile = ({ children, items, onPusherClick, onToggle, visible, logo, inverted }) => (
-	<Sidebar.Pushable>
-		<Sidebar
-			as={Menu}
-			animation="overlay"
-			icon="labeled"
-			inverted={inverted}
-			items={items}
-			vertical
-			visible={visible}
-		/>
-		<Sidebar.Pusher dimmed={visible} onClick={onPusherClick} style={{ minHeight: "100vh" }}>
-			<Menu fixed="top" inverted>
+const SidebarMenu = ({ items }) => {
+	return <Menu>{items.menuItems}</Menu>
+}
+
+const NavBarMobile = ({ children, menuItems, onPusherClick, onToggle, visible, logo, inverted }) => {
+	const searchMenu = useSearchMenu()
+	return (
+		<Sidebar.Pushable>
+			<Sidebar
+				as={SidebarMenu}
+				icon="labeled"
+				items={menuItems}
+				animation="overlay"
+				vertical
+				visible={visible}
+			/>
+			<Sidebar.Pusher dimmed={visible} onClick={onPusherClick} style={{ minHeight: "100vh" }}>
+				<Menu fixed="top" inverted={inverted}>
+					{logo}
+					<Menu.Item onClick={onToggle}>
+						<Icon name="sidebar" />
+					</Menu.Item>
+				</Menu>
+				{searchMenu}
+				{children}
+			</Sidebar.Pusher>
+		</Sidebar.Pushable>
+	)
+}
+
+const NavBarDesktop = ({ logo, menuItems, inverted }) => {
+	const searchMenu = useSearchMenu()
+	return (
+		<>
+			<Menu fixed="top" inverted={inverted}>
 				{logo}
-				<Menu.Item onClick={onToggle}>
-					<Icon name="sidebar" title />
-				</Menu.Item>
-			</Menu>
-			{children}
-		</Sidebar.Pusher>
-	</Sidebar.Pushable>
-)
-
-const NavBarDesktop = ({ logo, leftItems, rightItems, inverted }) => (
-	<Menu fixed="top" inverted={inverted}>
-		{logo}
-		{/* <Menu.Item>
+				{/* <Menu.Item>
 			<Image size="mini" src="https://react.semantic-ui.com/logo.png" />
 		</Menu.Item> */}
-		{leftItems}
-		<Menu.Menu position="right">{rightItems}</Menu.Menu>
-	</Menu>
-)
+				{menuItems}
+				{/* <Menu.Menu position="right">{rightItems}</Menu.Menu> */}
+			</Menu>
+			{searchMenu}
+		</>
+	)
+}
 
-const NavBarChildren = ({ children }) => <Container style={{ marginTop: "5em" }}>{children}</Container>
+const NavBarChildren = ({ children, style }) => (
+	<div style={{ style }}>
+		<Container className="navbar-child" style={{ marginTop: "5em" }}>
+			{children}
+		</Container>
+	</div>
+)
 
 export class ResponsiveNavbar extends Component {
 	state = {
@@ -59,23 +79,24 @@ export class ResponsiveNavbar extends Component {
 	handleToggle = () => this.setState({ visible: !this.state.visible })
 
 	render() {
-		const { children, leftItems, rightItems } = this.props
+		const { children, menuItems, inverted, style } = this.props
 		const { visible } = this.state
 		return (
-			<div>
+			<div style={style}>
 				<Responsive {...Responsive.onlyMobile}>
 					<NavBarMobile
-						items={{ ...leftItems, ...rightItems }}
+						menuItems={{ menuItems }}
 						onPusherClick={this.handlePusher}
 						onToggle={this.handleToggle}
 						visible={visible}
+						inverted={inverted}
 					>
-						<NavBarChildren>{children}</NavBarChildren>
+						<NavBarChildren style={{ style }}>{children}</NavBarChildren>
 					</NavBarMobile>
 				</Responsive>
 				<Responsive minWidth={Responsive.onlyTablet.minWidth}>
-					<NavBarDesktop leftItems={leftItems} rightItems={rightItems} />
-					<NavBarChildren>{children}</NavBarChildren>
+					<NavBarDesktop menuItems={menuItems} inverted={inverted} />
+					<NavBarChildren style={{ style }}>{children}</NavBarChildren>
 				</Responsive>
 			</div>
 		)

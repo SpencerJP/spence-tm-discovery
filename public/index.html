@@ -23,10 +23,11 @@
     -->
 		<title>Spence's Event Discovery</title>
 		<script>
-			// these are inserted by webpack, saved onto the global window object,
-			// workaround for environment vars not being accessible from a built react project
-			window.TICKETMASTER_API_URL = "%TICKETMASTER_API_URL%"
-			window.TICKETMASTER_API_KEY = "%TICKETMASTER_API_KEY%"
+			/* these are inserted by webpack, saved onto the global window object,
+			workaround for environment vars not being accessible from a built react project */
+			window.REACT_APP_TICKETMASTER_API_URL = "%REACT_APP_TICKETMASTER_API_URL%"
+			window.REACT_APP_TICKETMASTER_API_KEY = "%REACT_APP_TICKETMASTER_API_KEY%"
+			window.REACT_APP_IPREGISTRY_API_KEY = "%REACT_APP_IPREGISTRY_API_KEY%"
 		</script>
 	</head>
 	<body>

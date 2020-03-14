@@ -69,7 +69,7 @@ export function createReducerManager(initialReducers) {
 		},
 	}
 }
-export var reducerManager = createReducerManager({})
+export var reducerManager = createReducerManager({ baseReducer: (state = {}) => state })
 
 export default function configureStore(initialState, middleware = defaultMiddleware) {
 	store = createStore(reducerManager.reduce, initialState, compose(applyMiddleware(...middleware)))

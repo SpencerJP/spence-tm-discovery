@@ -4,5 +4,16 @@ export function serialize(object) {
 		if (Object.prototype.hasOwnProperty.call(object, p)) {
 			str.push(encodeURIComponent(p) + "=" + encodeURIComponent(object[p]))
 		}
-	return "?" + str.join("&")
+	return str.join("&")
+}
+
+//ensure that the params for any ticketmaster url are encoded and have an api key present.
+export function setupURLParamsTicketMaster(paramsObject) {
+	if (!paramsObject) {
+		paramsObject = {}
+	}
+	if (paramsObject.apikey === undefined) {
+		paramsObject.apikey = window.REACT_APP_TICKETMASTER_API_KEY
+	}
+	return serialize(paramsObject)
 }

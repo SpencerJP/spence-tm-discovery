@@ -5,7 +5,7 @@ import { menuItems } from "../EventSiteRoutes"
 
 export function Navbar(props) {
 	return (
-		<ResponsiveNavbar leftItems={menuItems} rightItems={<></>}>
+		<ResponsiveNavbar menuItems={menuItems} inverted style={{ backgroundColor: "#68B9FF" }}>
 			{props.children}
 		</ResponsiveNavbar>
 	)

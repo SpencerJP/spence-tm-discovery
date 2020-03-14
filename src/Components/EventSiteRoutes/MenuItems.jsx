@@ -1,16 +1,32 @@
 import React from "react"
-
+import PropTypes from "prop-types"
 import { Menu } from "semantic-ui-react"
 import { Link } from "react-router-dom"
 
+const styling = { fontSize: "1.5em" }
+
+const NavItem = ({ name, children }) => {
+	return (
+		<Menu.Item style={styling} as={Link} to={"/" + name}>
+			{children}
+		</Menu.Item>
+	)
+}
+
+NavItem.propTypes = {
+	name: PropTypes.string,
+	children: PropTypes.string,
+}
+
+// navbar items
 export const menuItems = [
-	<Menu.Item key="home" as={Link} to="/home">
+	<NavItem key="home" name="home">
 		Home
-	</Menu.Item>,
-	<Menu.Item key="eventview" as={Link} to="/eventview">
+	</NavItem>,
+	<NavItem key="eventview" name="eventview">
 		Event Lookup
-	</Menu.Item>,
-	<Menu.Item key="about" as={Link} to="/about">
+	</NavItem>,
+	<NavItem key="about" name="about">
 		About
-	</Menu.Item>,
+	</NavItem>,
 ]

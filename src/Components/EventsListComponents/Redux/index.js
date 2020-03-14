@@ -1,9 +1,9 @@
 import * as actions from "./Actions"
 import * as mockData from "./MockData"
-import EventsListReducer from "./EventsListReducer"
+import EventListReducer from "./EventListReducer"
 import * as types from "./Types"
 import { reducerManager } from "../../../Store"
 
-reducerManager.add("eventListReducer", EventsListReducer)
-export default EventsListReducer
+reducerManager.add("eventListReducer", EventListReducer)
+export default EventListReducer
 export { actions, mockData, types }
