@@ -19,13 +19,21 @@ export const StyledSaleDate = props => {
 }
 
 function isDate(object) {
-	return Object.prototype.toString.call(object) === "[object Date]"
+	return (
+		Object.prototype.toString.call(object) === "[object Date]" ||
+		Object.prototype.toString.call(new Date(object)) === "[object Date]"
+	)
 }
 
 function propIsDate(props, propName, componentName) {
 	if (!isDate(props[propName])) {
 		return new Error(
-			"Invalid prop `" + propName + "` supplied to `" + componentName + "`. Validation failed."
+			"Invalid prop `" +
+				propName +
+				"` supplied to `" +
+				componentName +
+				"`. Validation failed. Value was " +
+				JSON.stringify(props[propName])
 		)
 	}
 }

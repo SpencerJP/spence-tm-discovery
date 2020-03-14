@@ -1,10 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Card, Grid, Button, Icon, Image } from "semantic-ui-react"
+import { Card, Grid } from "semantic-ui-react"
 import { StyledEventDate } from "./StyledEventDate"
 import { StyledSaleDate } from "./StyledSaleDate"
 import { LimitedTextBox } from "./LimitedTextBox"
 import { timeFormat } from "d3"
+import { ViewOnTicketMasterButton } from "./ViewOnTicketMasterButton"
+import { SeeMoreButton } from "./SeeMoreButton"
+import { ImageColumn } from "./ImageColumn"
 
 // format like Friday 7pm"
 const timeFormatter = timeFormat("%A %-I.%M%p")
@@ -34,7 +37,6 @@ const getBestImageURL = images => {
  */
 export function EventListItem(props) {
 	const { name, dates, _embedded, images, info, url, sales } = props.data
-	console.log(props.data)
 	const formattedDate = removeNull(dates?.start?.localDate)
 	const venue = _embedded?.venues[0]
 	const placeholderImageSrc = getBestImageURL(images)
@@ -45,7 +47,7 @@ export function EventListItem(props) {
 	const dayAndTimeString = timeFormatter(new Date(dates?.start?.dateTime))
 	const ticketMasterURL = url
 	let styledSaleDate = null
-	if (sales?.public?.startDateTime) {
+	if (sales?.public?.startDateTime && sales?.public?.endDateTime) {
 		styledSaleDate = (
 			<StyledSaleDate from={sales.public.startDateTime} to={sales.public.endDateTime} mobile={props.mobile} />
 		)
@@ -81,11 +83,7 @@ export function EventListItem(props) {
 				<Grid>
 					<Grid.Row>
 						{/* let's save some mobile data and skip loading images! */}
-						{!props.mobile && (
-							<Grid.Column width={props.mobile ? 16 : 8}>
-								{placeholderImageSrc && <Image src={placeholderImageSrc} size="medium" />}
-							</Grid.Column>
-						)}
+						<ImageColumn mobile={props.mobile} src={placeholderImageSrc} />
 						<Grid.Column width={props.mobile ? 16 : 8} style={{ color: "#000000", textAlign: "left" }}>
 							<LimitedTextBox mobile={props.mobile}>{description}</LimitedTextBox>
 						</Grid.Column>
@@ -93,16 +91,8 @@ export function EventListItem(props) {
 					<Grid.Row>
 						<Grid.Column width={props.mobile ? 16 : 5}>{styledSaleDate}</Grid.Column>
 						<Grid.Column width={props.mobile ? 16 : 11}>
-							<Button floated="right" color="blue" compact={props.mobile}>
-								{!props.mobile && "See More"}
-								<Icon name="chevron right" style={props.mobile ? { marginRight: "0.3em" } : {}}></Icon>
-							</Button>
-							{!props.mobile && (
-								<Button floated="right" color="blue" onClick={() => window.open(ticketMasterURL, "_blank")}>
-									View On TicketMaster
-									<Icon name="external square alternate" style={{ marginLeft: "0.3em" }}></Icon>
-								</Button>
-							)}
+							<SeeMoreButton mobile={props.mobile} eventData={props.data} />
+							<ViewOnTicketMasterButton mobile={props.mobile} ticketMasterURL={ticketMasterURL} />
 						</Grid.Column>
 					</Grid.Row>
 				</Grid>

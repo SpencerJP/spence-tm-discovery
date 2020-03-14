@@ -1,17 +1,18 @@
-import { setupURLParamsTicketMaster } from "../../../Utilities/Requests/serializeToURLParams"
+// import { setupURLParamsTicketMaster } from "../../../Utilities/Requests/serializeToURLParams"
 import { SELECTED_EVENT_DATA, EVENTVIEW_LOADING_STATUS } from "./Types"
 
 export const urls = {
-	eventList: "/events.json",
+	// eventList: "/events.json",
 }
 
-export function fetchEventData(params) {
-	const paramsString = setupURLParamsTicketMaster(params)
-	const requestURL = `${window.REACT_APP_TICKETMASTER_API_URL}${urls.eventList}${paramsString}`
-	return fetch(requestURL, SELECTED_EVENT_DATA)
+export function setSelectedEventData(data) {
+	return {
+		type: SELECTED_EVENT_DATA,
+		payload: data,
+	}
 }
 
-export function setIsLoading(boolean) {
+export function setEventViewLoadingStatus(boolean) {
 	return {
 		type: EVENTVIEW_LOADING_STATUS,
 		payload: boolean,

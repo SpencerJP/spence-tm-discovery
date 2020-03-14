@@ -5,19 +5,18 @@ import { About } from "../AboutUs"
 import { EventView } from "../EventView"
 
 export function EventSiteRoutes(props) {
-	const location = useLocation()
 	return (
 		<Switch>
-			<Route path="/">
+			<Route exact path="/">
 				<EventList />
 			</Route>
-			<Route path="/home">
+			<Route exact path="/home">
 				<EventList />
 			</Route>
-			<Route path="/viewevent">
+			<Route exact path="/viewevent">
 				<EventView />
 			</Route>
-			<Route path="/about">
+			<Route exact path="/about">
 				<About />
 			</Route>
 		</Switch>

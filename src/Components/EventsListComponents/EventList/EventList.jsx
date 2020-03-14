@@ -64,5 +64,11 @@ const FallbackWrapper = ({ events, mobile }) => {
 	if (!events || !events.length) {
 		return <h2>No events found!</h2>
 	}
-	return events.map(element => <EventListItem key={element.id} data={element} mobile={mobile} />)
+
+	return events.map(element => {
+		if (!element) {
+			throw new Error("Event isn't valid.")
+		}
+		return <EventListItem key={element.id} data={element} mobile={mobile} />
+	})
 }
