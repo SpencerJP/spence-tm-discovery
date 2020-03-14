@@ -10,7 +10,12 @@ import { SeeMoreButton } from "./SeeMoreButton"
 import { ImageColumn } from "./ImageColumn"
 
 // format like Friday 7pm"
-const timeFormatter = timeFormat("%A %-I.%M%p")
+const timeFormatter = date => {
+	if (date.toString() !== "Invalid Date") {
+		return timeFormat("%A %-I.%M%p")(date)
+	}
+	return ""
+}
 
 const removeNull = obj => {
 	if (!obj) {
