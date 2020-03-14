@@ -5,6 +5,7 @@ import { EventListItem } from "../EventListItem"
 import { fetchEventList } from "../Redux/Actions"
 import { useOnMountFetch } from "../../../Utilities/Hooks/useOnMountFetch"
 import { useWindowSize } from "../../../Utilities/Hooks/useWindowSize"
+import { EventListSearchMenu } from "../EventListSearchMenu/EventListSearchMenu"
 
 function BigLoader() {
 	const { height } = useWindowSize()
@@ -33,6 +34,7 @@ export function EventList() {
 	}
 	return (
 		<Grid>
+			<EventListSearchMenu />
 			<Grid.Row centered>
 				<Responsive
 					as={Segment}

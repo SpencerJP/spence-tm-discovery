@@ -8,10 +8,8 @@
 
 import React, { Component } from "react"
 import { Container, Icon, Menu, Sidebar, Responsive } from "semantic-ui-react"
-import { useSearchMenu } from "./useSearchMenu"
 
 const NavBarMobile = ({ children, menuItems, onPusherClick, onToggle, visible, logo, inverted }) => {
-	const searchMenu = useSearchMenu()
 	return (
 		<Sidebar.Pushable>
 			<Sidebar as={Menu} icon="labeled" animation="overlay" vertical visible={visible} inverted={inverted}>
@@ -24,7 +22,6 @@ const NavBarMobile = ({ children, menuItems, onPusherClick, onToggle, visible, l
 						<Icon name="sidebar" />
 					</Menu.Item>
 				</Menu>
-				{searchMenu}
 				{children}
 			</Sidebar.Pusher>
 		</Sidebar.Pushable>
@@ -32,7 +29,6 @@ const NavBarMobile = ({ children, menuItems, onPusherClick, onToggle, visible, l
 }
 
 const NavBarDesktop = ({ logo, menuItems, inverted }) => {
-	const searchMenu = useSearchMenu()
 	return (
 		<>
 			<Menu fixed="top" inverted={inverted}>
@@ -43,7 +39,6 @@ const NavBarDesktop = ({ logo, menuItems, inverted }) => {
 				{menuItems}
 				{/* <Menu.Menu position="right">{rightItems}</Menu.Menu> */}
 			</Menu>
-			{searchMenu}
 		</>
 	)
 }
