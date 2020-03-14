@@ -4,6 +4,10 @@ import { Card, Grid, Button, Icon, Image } from "semantic-ui-react"
 import { StyledEventDate } from "./StyledEventDate"
 import { StyledSaleDate } from "./StyledSaleDate"
 import { LimitedTextBox } from "./LimitedTextBox"
+import { timeFormat } from "d3"
+
+// format like Friday 7pm"
+const timeFormatter = timeFormat("%A %-I.%M%p")
 
 const removeNull = obj => {
 	if (!obj) {
@@ -38,7 +42,7 @@ export function EventListItem(props) {
 	if (!description) {
 		description = "No description found for this event."
 	}
-	const dayAndTimeString = "Friday 7.00pm"
+	const dayAndTimeString = timeFormatter(new Date(dates?.start?.dateTime))
 	const ticketMasterURL = url
 	let styledSaleDate = null
 	if (sales?.public?.startDateTime) {
