@@ -36,6 +36,8 @@ export function EventListSearchMenu() {
 	useEffect(() => {
 		if (activeUrlParams.keyword) {
 			setKeywordSearch(activeUrlParams.keyword)
+		} else {
+			setKeywordSearch("")
 		}
 	}, [activeUrlParams])
 
