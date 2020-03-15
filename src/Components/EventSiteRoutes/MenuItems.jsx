@@ -20,7 +20,7 @@ NavItem.propTypes = {
 
 // navbar items
 export const menuItems = [
-	<NavItem key="home" name="home">
+	<NavItem key="home" name="">
 		Home
 	</NavItem>,
 	<NavItem key="about" name="about">

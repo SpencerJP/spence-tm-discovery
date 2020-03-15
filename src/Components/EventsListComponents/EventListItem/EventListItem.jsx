@@ -64,7 +64,11 @@ export function EventListItem(props) {
 				<Grid>
 					<Grid.Row columns={2}>
 						<Grid.Column>
-							<Card.Header textAlign="left" style={{ fontSize: "1.3em" }}>
+							<Card.Header
+								textAlign="left"
+								style={{ fontSize: "1.3em", cursor: "pointer", color: "#005475" }}
+								onClick={() => window.open(ticketMasterURL, "_blank")}
+							>
 								{name}
 							</Card.Header>
 							<Card.Header textAlign="left" style={{ fontSize: "1.15em" }}>

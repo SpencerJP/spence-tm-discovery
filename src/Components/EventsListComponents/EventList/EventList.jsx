@@ -63,8 +63,12 @@ export function EventList() {
 					) : (
 						<>
 							<BigLoader />
-
-							<EventListPagination mobile={false} />
+							<Responsive maxWidth={Responsive.onlyTablet.minWidth - 1}>
+								<EventListPagination mobile={true} />
+							</Responsive>
+							<Responsive minWidth={Responsive.onlyTablet.minWidth}>
+								<EventListPagination mobile={false} />
+							</Responsive>
 						</>
 					)}
 				</Grid.Row>

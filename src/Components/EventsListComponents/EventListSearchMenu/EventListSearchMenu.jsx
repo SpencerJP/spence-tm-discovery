@@ -55,9 +55,7 @@ export function EventListSearchMenu() {
 								placeholder="Search by Artist, Event or Venue"
 								value={keywordSearch}
 								onChange={(e, { value }) => {
-									if (value) {
-										setKeywordSearch(value)
-									}
+									setKeywordSearch(value)
 								}}
 							/>
 							<Form.Field
