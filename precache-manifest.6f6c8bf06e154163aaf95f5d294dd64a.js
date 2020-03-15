@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "da71345b1b57e18d93944be397382e2a",
+    "revision": "236765f218b2475f2fb9554c8886ec9a",
     "url": "https://spencerjp.github.io/index.html"
   },
   {
-    "revision": "b01534dea10cf041d5b8",
+    "revision": "234dda459ab76b109b1a",
     "url": "https://spencerjp.github.io/static/css/2.b216e5aa.chunk.css"
   },
   {
@@ -12,12 +12,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://spencerjp.github.io/static/css/main.6dc3c1b8.chunk.css"
   },
   {
-    "revision": "b01534dea10cf041d5b8",
-    "url": "https://spencerjp.github.io/static/js/2.94e9cc3c.chunk.js"
+    "revision": "234dda459ab76b109b1a",
+    "url": "https://spencerjp.github.io/static/js/2.758bc81b.chunk.js"
   },
   {
     "revision": "49c45e15b22906ea61e3b3085d227f58",
-    "url": "https://spencerjp.github.io/static/js/2.94e9cc3c.chunk.js.LICENSE.txt"
+    "url": "https://spencerjp.github.io/static/js/2.758bc81b.chunk.js.LICENSE.txt"
   },
   {
     "revision": "d846ce8631e4ee3c1cd2",
