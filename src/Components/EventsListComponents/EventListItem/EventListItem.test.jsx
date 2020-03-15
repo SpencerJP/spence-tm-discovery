@@ -4,7 +4,7 @@ import { render } from "@testing-library/react"
 import EventListReducer, { mockData } from "../Redux"
 import { Provider } from "react-redux"
 import { EventListItem } from "./EventListItem"
-import { MemoryRouter, Route } from "react-router-dom"
+import { MemoryRouter } from "react-router-dom"
 
 // eslint-disable-next-line react/prop-types
 const TestWrapper = ({ store, children }) => {
@@ -37,7 +37,6 @@ describe("EventListItem tests", () => {
 	})
 
 	it('renders a button that will take you to a "close up view" of this event', () => {
-		let locationTest
 		const { getByText } = render(
 			<TestWrapper store={mockStore}>
 				<EventListItem
@@ -45,26 +44,9 @@ describe("EventListItem tests", () => {
 					data={mockData.mockEventsJson._embedded.events[0]}
 					mobile={false}
 				/>
-				<Route
-					path="*"
-					render={({ location }) => {
-						locationTest = location
-						return null
-					}}
-				/>
 			</TestWrapper>
 		)
-		const buttonElement = getByText(/See More/i) // button should be present
+		const buttonElement = getByText(/View On TicketMaster/i) // button should be present
 		expect(buttonElement).toBeInTheDocument()
-
-		const expectedEventSelectAction = {
-			type: "SELECTED_EVENT_DATA", // todo import this from relevant file
-			payload: mockData.mockEventsJson._embedded.events[0],
-		}
-
-		expect(locationTest.pathname).toMatch(/eventview/)
-
-		const storeActions = mockStore.getActions()
-		expect(storeActions).toEqual([expectedEventSelectAction])
 	})
 })

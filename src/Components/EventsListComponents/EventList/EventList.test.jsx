@@ -33,48 +33,49 @@ describe("EventList tests", () => {
 		mockStore = configureStore(initialState, getTestMiddleware())
 	})
 	afterEach(() => {
-		fetchMock.reset()
+		fetchMock.restore()
 	})
-	it("calls fetch on mount", () => {
+	it("calls fetch on mount", async () => {
 		mockEventsFetch(300)
 		render(
 			<TestWrapper store={mockStore}>
 				<EventList />
 			</TestWrapper>
 		)
+
 		wait(() => {
 			const storeState = mockStore.getState()
 			expect(storeState.eventListReducer.stepQueryData).toEqual(mockData.mockEventsJson)
-		}, 1500)
+		}, 500)
 	})
-	it("fetches and renders at least one event", () => {
-		mockEventsFetch()
+	it("fetches and renders at least one event", async () => {
+		mockEventsFetch(300)
 		const { getByText } = render(
 			<TestWrapper store={mockStore}>
 				<EventList />
 			</TestWrapper>
 		)
-		wait(() => {
+		await wait(() => {
 			const eventElement = getByText(/Charlotte Hornets vs. Los Angeles Lakers/i)
 			expect(eventElement).toBeInTheDocument()
-		}, 1500)
+		}, 500)
 	})
 
-	it("displays loader because it is waiting for fetch", () => {
-		mockEventsFetch(1501)
+	it("displays loader because it is waiting for fetch", async () => {
+		mockEventsFetch(300)
 		const { getByText } = render(
 			<TestWrapper store={mockStore}>
 				<EventList />
 			</TestWrapper>
 		)
-		wait(() => {
-			const loadingElement = getByText(/Loading/i)
-			expect(loadingElement).toBeInTheDocument()
-		}, 1500)
+		const loadingElement = getByText(/Loading/i)
+		expect(loadingElement).toBeInTheDocument()
+
+		await wait(() => {}, 500)
 	})
 
 	it("calls fetch on mount, then displays a list of events, specifically their header", async () => {
-		mockEventsFetch()
+		mockEventsFetch(300)
 		const { getAllByText } = render(
 			<TestWrapper store={mockStore}>
 				<EventList />
@@ -88,7 +89,7 @@ describe("EventList tests", () => {
 				const headerElements2 = getAllByText(/Eagles/i) // Event name from mock data
 				expect(headerElements2.length).not.toEqual(0)
 			},
-			{ timeout: 1500 }
+			{ timeout: 500 }
 		)
 	})
 })

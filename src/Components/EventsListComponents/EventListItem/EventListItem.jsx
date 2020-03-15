@@ -6,7 +6,7 @@ import { StyledSaleDate } from "./StyledSaleDate"
 import { LimitedTextBox } from "./LimitedTextBox"
 import { timeFormat } from "d3"
 import { ViewOnTicketMasterButton } from "./ViewOnTicketMasterButton"
-import { SeeMoreButton } from "./SeeMoreButton"
+// import { SeeMoreButton } from "./SeeMoreButton" // removed to reduce scope
 import { ImageColumn } from "./ImageColumn"
 
 // format like Friday 7pm"
@@ -97,7 +97,7 @@ export function EventListItem(props) {
 					<Grid.Row>
 						<Grid.Column width={props.mobile ? 16 : 5}>{styledSaleDate}</Grid.Column>
 						<Grid.Column width={props.mobile ? 16 : 11}>
-							<SeeMoreButton mobile={props.mobile} eventData={props.data} />
+							{/* <SeeMoreButton mobile={props.mobile} eventData={props.data} /> */}
 							<ViewOnTicketMasterButton mobile={props.mobile} ticketMasterURL={ticketMasterURL} />
 						</Grid.Column>
 					</Grid.Row>

@@ -40,11 +40,11 @@ export function EventListSearchMenu() {
 	}, [activeUrlParams])
 
 	return (
-		<Segment style={{ top: "0", backgroundColor: "#c0dffff4", width: "100%" }}>
+		<Segment style={{ marginTop: "4.4em", backgroundColor: "#c0dffff4", width: "100%" }}>
 			<Accordion>
 				<Accordion.Title active={accordionActive} onClick={() => setAccordionActive(!accordionActive)}>
 					<Icon name="dropdown" />
-					Search Options
+					Click for Search Options
 				</Accordion.Title>
 				<Accordion.Content active={accordionActive}>
 					<Form loading={isLoading}>
@@ -87,6 +87,7 @@ export function EventListSearchMenu() {
 							<Form.Field
 								id="form-button-control-save-and-search"
 								control={Button}
+								style={{ marginTop: "1.7em" }}
 								content="Search"
 								color="blue"
 								floated="right"

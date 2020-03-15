@@ -35,15 +35,14 @@ describe("app acceptance tests", () => {
     const button1 = getByText(/Home/i)
     button1.click()
     
+    
     const button2 = getByText(/About/i)
     button2.click()
-    wait(() => {
+    await wait(() => {
       const aboutElement = getByText(/This React-Redux site made by Spencer Porteous./i)
       expect(aboutElement).toBeInTheDocument()
 
     }, 1500)
-
-    await wait(() => {}, 500)
     
     button1.click()
     wait(() => {

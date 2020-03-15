@@ -10,6 +10,10 @@ export function getTestMiddleware() {
 	return middlewareNoLogger
 }
 
+export function getProductionMiddleware() {
+	return middlewareNoLogger
+}
+
 export function createReducerManager(initialReducers) {
 	// Create an object which maps keys to reducers
 	const reducers = { ...initialReducers }
@@ -72,7 +76,11 @@ export function createReducerManager(initialReducers) {
 export var reducerManager = createReducerManager({ baseReducer: (state = {}) => state })
 
 export default function configureStore(initialState, middleware = defaultMiddleware) {
-	store = createStore(reducerManager.reduce, initialState, compose(applyMiddleware(...middleware)))
+	if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+		store = createStore(reducerManager.reduce, initialState, compose(applyMiddleware(...middleware)))
+	} else {
+		store = createStore(reducerManager.reduce, initialState, compose(applyMiddleware(...middlewareNoLogger)))
+	}
 
 	// Return the modified store
 	return store

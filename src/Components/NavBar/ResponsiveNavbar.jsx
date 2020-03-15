@@ -65,7 +65,7 @@ export class ResponsiveNavbar extends Component {
 	handleToggle = () => this.setState({ visible: !this.state.visible })
 
 	render() {
-		const { children, menuItems, inverted, style } = this.props
+		const { children, menuItems, inverted, style, logo } = this.props
 		const { visible } = this.state
 		return (
 			<div style={style}>
@@ -76,12 +76,13 @@ export class ResponsiveNavbar extends Component {
 						onToggle={this.handleToggle}
 						visible={visible}
 						inverted={inverted}
+						logo={logo}
 					>
 						<NavBarChildren style={{ style }}>{children}</NavBarChildren>
 					</NavBarMobile>
 				</Responsive>
 				<Responsive minWidth={Responsive.onlyTablet.minWidth}>
-					<NavBarDesktop menuItems={menuItems} inverted={inverted} />
+					<NavBarDesktop menuItems={menuItems} inverted={inverted} logo={logo} />
 					<NavBarChildren style={{ style }}>{children}</NavBarChildren>
 				</Responsive>
 			</div>
