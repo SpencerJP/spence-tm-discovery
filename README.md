@@ -1,12 +1,11 @@
 # Spencer's Event Discovery
 
-This is an event finder using the public Ticketmaster API. This project was made in React-Redux.
+This is an event finder using the public Ticketmaster API. This project was made with React, Redux, and Semantic UI React library.
 
 ## Installation:
 
 1. Clone to desktop.
 2. Run "npm install"
-3. Insert missing API keys from ticketmaster into the .env file.
 4. Run "npm start" to run the application locally, or "npm run build" to transpile and minify the project.
 
 ## Requirements:
