@@ -6,20 +6,20 @@
     "runtime-main.js": "/spence-tm-discovery/static/js/runtime-main.0fa28ee1.js",
     "runtime-main.js.map": "/spence-tm-discovery/static/js/runtime-main.0fa28ee1.js.map",
     "static/css/2.a6c7c94b.chunk.css": "/spence-tm-discovery/static/css/2.a6c7c94b.chunk.css",
-    "static/js/2.19f78c99.chunk.js": "/spence-tm-discovery/static/js/2.19f78c99.chunk.js",
-    "static/js/2.19f78c99.chunk.js.map": "/spence-tm-discovery/static/js/2.19f78c99.chunk.js.map",
+    "static/js/2.524d8619.chunk.js": "/spence-tm-discovery/static/js/2.524d8619.chunk.js",
+    "static/js/2.524d8619.chunk.js.map": "/spence-tm-discovery/static/js/2.524d8619.chunk.js.map",
     "index.html": "/spence-tm-discovery/index.html",
-    "precache-manifest.a7849a9aac813b4530010e486966ea12.js": "/spence-tm-discovery/precache-manifest.a7849a9aac813b4530010e486966ea12.js",
+    "precache-manifest.29026ee2ce017d1eb37c75e294476f1f.js": "/spence-tm-discovery/precache-manifest.29026ee2ce017d1eb37c75e294476f1f.js",
     "service-worker.js": "/spence-tm-discovery/service-worker.js",
     "static/css/2.a6c7c94b.chunk.css.map": "/spence-tm-discovery/static/css/2.a6c7c94b.chunk.css.map",
     "static/css/main.6dc3c1b8.chunk.css.map": "/spence-tm-discovery/static/css/main.6dc3c1b8.chunk.css.map",
-    "static/js/2.19f78c99.chunk.js.LICENSE.txt": "/spence-tm-discovery/static/js/2.19f78c99.chunk.js.LICENSE.txt",
+    "static/js/2.524d8619.chunk.js.LICENSE.txt": "/spence-tm-discovery/static/js/2.524d8619.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/spence-tm-discovery/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.0fa28ee1.js",
     "static/css/2.a6c7c94b.chunk.css",
-    "static/js/2.19f78c99.chunk.js",
+    "static/js/2.524d8619.chunk.js",
     "static/css/main.6dc3c1b8.chunk.css",
     "static/js/main.7c74e97f.chunk.js"
   ]
