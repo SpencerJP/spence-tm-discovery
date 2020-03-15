@@ -2,11 +2,19 @@
 
 This is an event finder using the public Ticketmaster API. This project was made with React, Redux, and Semantic UI React library.
 
+The completed site can be found at https://spencerjp.github.io/spence-tm-discovery/ .
+
 ## Installation:
 
 1. Clone to desktop.
 2. Run "npm install"
 4. Run "npm start" to run the application locally, or "npm run build" to transpile and minify the project.
+
+## Testing:
+  
+  1. Clone to desktop.
+  2. Run "npm install"
+  3. Run "npm test" to run the jest tests.
 
 ## Requirements:
 
