@@ -47,7 +47,7 @@ export function EventListSearchMenu() {
 					Click for Search Options
 				</Accordion.Title>
 				<Accordion.Content active={accordionActive}>
-					<Form loading={isLoading}>
+					<Form>
 						<Form.Group widths="equal">
 							<Form.Field
 								control={Input}
@@ -91,6 +91,7 @@ export function EventListSearchMenu() {
 								content="Search"
 								color="blue"
 								floated="right"
+								loading={isLoading}
 								onClick={() => onClickHandler(dispatch, countryCode, keywordSearch, sortType)}
 							/>
 						</Form.Group>
