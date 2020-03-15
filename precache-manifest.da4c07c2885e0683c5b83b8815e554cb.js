@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "34b9997a7d602f76a2fa385401eb1ec2",
+    "revision": "b826babf11bea6ab9732dd2418abed72",
     "url": "/spence-tm-discovery/index.html"
   },
   {
-    "revision": "b0ff8ebee8afa4b1d5d0",
+    "revision": "847d14ca735a4c7bdf93",
     "url": "/spence-tm-discovery/static/css/2.a6c7c94b.chunk.css"
   },
   {
-    "revision": "36643ae8f23d3ad43ee7",
+    "revision": "6803dc100f41232741ee",
     "url": "/spence-tm-discovery/static/css/main.6dc3c1b8.chunk.css"
   },
   {
-    "revision": "b0ff8ebee8afa4b1d5d0",
-    "url": "/spence-tm-discovery/static/js/2.19f78c99.chunk.js"
+    "revision": "847d14ca735a4c7bdf93",
+    "url": "/spence-tm-discovery/static/js/2.cadef4dd.chunk.js"
   },
   {
     "revision": "49c45e15b22906ea61e3b3085d227f58",
-    "url": "/spence-tm-discovery/static/js/2.19f78c99.chunk.js.LICENSE.txt"
+    "url": "/spence-tm-discovery/static/js/2.cadef4dd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "36643ae8f23d3ad43ee7",
-    "url": "/spence-tm-discovery/static/js/main.6392e9af.chunk.js"
+    "revision": "6803dc100f41232741ee",
+    "url": "/spence-tm-discovery/static/js/main.5f03a710.chunk.js"
   },
   {
     "revision": "3fdd863a6d62d059dde4",
