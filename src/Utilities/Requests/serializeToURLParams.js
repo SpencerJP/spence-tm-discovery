@@ -8,6 +8,11 @@ export function serialize(object) {
 }
 
 //ensure that the params for any ticketmaster url are encoded and have an api key present.
+// ended up doing something different, unused
+/**
+ *
+ * @unused
+ */
 export function setupURLParamsTicketMaster(paramsObject) {
 	if (!paramsObject) {
 		paramsObject = {}

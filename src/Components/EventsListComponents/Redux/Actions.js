@@ -1,9 +1,11 @@
-import { setupURLParamsTicketMaster, serialize } from "../../../Utilities/Requests/serializeToURLParams"
+import { serialize } from "../../../Utilities/Requests/serializeToURLParams"
 import {
 	SET_EVENTLIST_DATA,
 	EVENTLIST_LOADING_STATUS,
 	SET_EVENTLIST_NUMBER_OF_PAGES,
-	SET_USER_LOCATION,
+	SET_USER_IP_LOCATION,
+	SET_ACTIVE_URL_PARAMS,
+	ACTIVE_URL_PARAMS_UPDATE_PARAM,
 } from "./Types"
 
 export const urls = {
@@ -12,28 +14,27 @@ export const urls = {
 }
 
 const insertCountryCode = async (dispatch, params) => {
-	if (!params) {
-		params = {}
-	}
 	if (!params?.countryCode) {
 		// no country found in parameters, let's check the user's country
 		let country = await dispatch(fetchUserLocation())
 		if (country) {
-			params.countryCode = country
+			dispatch(setActiveUrlParams({ ...params, countryCode: country }))
 		}
 	}
-	return params
 }
 
-export function fetchEventList(params, initial) {
-	return async function(dispatch) {
+export function fetchEventList() {
+	return async function(dispatch, getState) {
 		dispatch(setIsLoading(true))
+		console.log(getState())
 
-		if (initial) {
-			params = await insertCountryCode(dispatch, params)
+		let { activeUrlParams } = getState().eventListReducer
+		if (!activeUrlParams.countryCode) {
+			await insertCountryCode(dispatch, activeUrlParams) // load the params with the user's current country by IP Address
+			activeUrlParams = getState().eventListReducer.activeUrlParams
 		}
 
-		const paramsString = setupURLParamsTicketMaster(params) // convert params into an URL string
+		const paramsString = serialize(activeUrlParams) // convert params into an URL string
 		const requestURL = `${window.REACT_APP_TICKETMASTER_API_URL}${urls.eventList}?${paramsString}`
 		let response = await fetch(requestURL)
 		let data = await response.json()
@@ -49,7 +50,7 @@ export function fetchUserLocation() {
 		const requestURL = `${urls.userLocationService}?${urlParams}`
 		let response = await fetch(requestURL)
 		let data = await response.json()
-		dispatch(setUserLocation(data))
+		dispatch(setUserIPLocation(data))
 		return data?.location?.country?.code
 	}
 }
@@ -75,9 +76,28 @@ export function setNumberOfPages(number) {
 	}
 }
 
-export function setUserLocation(locationObject) {
+export function setUserIPLocation(locationObject) {
 	return {
-		type: SET_USER_LOCATION,
+		type: SET_USER_IP_LOCATION,
 		payload: locationObject,
+	}
+}
+
+export function setActiveUrlParams(paramsObject) {
+	return {
+		type: SET_ACTIVE_URL_PARAMS,
+		payload: paramsObject,
+	}
+}
+
+/**
+ *  the difference between this one and the one above is this
+ * will only update the key value pairs supplied by paramsObject instead of the entire object
+ * @param {*} paramsObject key value pairs to update
+ */
+export function updateSingleParamActiveUrl(paramsObject) {
+	return {
+		type: ACTIVE_URL_PARAMS_UPDATE_PARAM,
+		payload: paramsObject,
 	}
 }

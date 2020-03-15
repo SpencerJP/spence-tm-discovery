@@ -1,8 +1,10 @@
 import {
 	SET_EVENTLIST_DATA,
 	EVENTLIST_LOADING_STATUS,
-	SET_USER_LOCATION,
+	SET_USER_IP_LOCATION,
 	SET_EVENTLIST_NUMBER_OF_PAGES,
+	SET_ACTIVE_URL_PARAMS,
+	ACTIVE_URL_PARAMS_UPDATE_PARAM,
 } from "./Types"
 
 const initialState = {
@@ -10,6 +12,9 @@ const initialState = {
 	isLoading: true,
 	userLocation: null,
 	numberOfPages: null,
+	activeUrlParams: {
+		apikey: window.REACT_APP_TICKETMASTER_API_KEY,
+	},
 }
 
 export default function(state = initialState, action) {
@@ -24,7 +29,7 @@ export default function(state = initialState, action) {
 				...state,
 				isLoading: action.payload,
 			}
-		case SET_USER_LOCATION:
+		case SET_USER_IP_LOCATION:
 			return {
 				...state,
 				userLocation: action.payload,
@@ -33,6 +38,23 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				numberOfPages: action.payload,
+			}
+		case SET_ACTIVE_URL_PARAMS:
+			if (!action.payload.apikey) {
+				// ensure apikey is retained no matter what
+				action.payload.apikey = window.REACT_APP_TICKETMASTER_API_KEY
+			}
+			return {
+				...state,
+				activeUrlParams: action.payload,
+			}
+		case ACTIVE_URL_PARAMS_UPDATE_PARAM:
+			return {
+				...state,
+				activeUrlParams: {
+					...state.activeUrlParams,
+					...action.payload,
+				},
 			}
 		default:
 			return state

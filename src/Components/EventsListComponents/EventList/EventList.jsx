@@ -10,7 +10,7 @@ import { EventListSearchMenu } from "../EventListSearchMenu/EventListSearchMenu"
 function BigLoader() {
 	const { height } = useWindowSize()
 	return (
-		<Segment style={{ height: height, marginTop: "5em" }}>
+		<Segment style={{ height: height, width: "80%" }}>
 			<Dimmer active inverted>
 				<Loader size="large">Loading</Loader>
 			</Dimmer>
@@ -27,33 +27,38 @@ export function EventList() {
 	const dispatch = useDispatch()
 	const events = useSelector(state => state.eventListReducer.eventListData)
 	const isLoading = useSelector(state => state.eventListReducer.isLoading)
-	useOnMountFetch(dispatch, { action: fetchEventList, args: [{ sort: "random" }, true] })
 
-	if (isLoading) {
-		return <BigLoader />
-	}
+	// automatically call API if component mounts
+	useOnMountFetch(dispatch, { action: fetchEventList, args: null })
+
 	return (
 		<Grid>
 			<EventListSearchMenu />
 			<Grid.Row centered>
-				<Responsive
-					as={Segment}
-					maxWidth={Responsive.onlyTablet.minWidth - 1}
-					style={{ width: "100%", backgroundColor: "rgb(41, 173, 255)" }}
-				>
-					<Grid.Column width={16}>
-						<FallbackWrapper events={events?._embedded?.events} mobile={true} />
-					</Grid.Column>
-				</Responsive>
-				<Responsive
-					as={Segment}
-					minWidth={Responsive.onlyTablet.minWidth}
-					style={{ width: "80%", backgroundColor: "#406a84" }}
-				>
-					<Grid.Column width={10}>
-						<FallbackWrapper events={events?._embedded?.events} mobile={false} />
-					</Grid.Column>
-				</Responsive>
+				{!isLoading ? (
+					<>
+						<Responsive
+							as={Segment}
+							maxWidth={Responsive.onlyTablet.minWidth - 1}
+							style={{ width: "100%", backgroundColor: "rgb(41, 173, 255)" }}
+						>
+							<Grid.Column width={16}>
+								<FallbackWrapper events={events?._embedded?.events} mobile={true} />
+							</Grid.Column>
+						</Responsive>
+						<Responsive
+							as={Segment}
+							minWidth={Responsive.onlyTablet.minWidth}
+							style={{ width: "80%", backgroundColor: "#406a84" }}
+						>
+							<Grid.Column width={10}>
+								<FallbackWrapper events={events?._embedded?.events} mobile={false} />
+							</Grid.Column>
+						</Responsive>
+					</>
+				) : (
+					<BigLoader />
+				)}
 			</Grid.Row>
 		</Grid>
 	)
