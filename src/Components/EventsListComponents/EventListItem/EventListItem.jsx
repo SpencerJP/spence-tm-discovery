@@ -72,7 +72,8 @@ export function EventListItem(props) {
 							</Card.Header>
 							{venue && (
 								<Card.Meta textAlign="left">
-									{removeNull(venue.name)} - {removeNull(venue.city?.name)},{" "}
+									{removeNull(venue.name)} - {removeNull(venue.city?.name)}
+									{venue.state?.stateCode && ", "}
 									{removeNull(venue.state?.stateCode)}
 								</Card.Meta>
 							)}

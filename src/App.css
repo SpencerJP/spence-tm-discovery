@@ -77,3 +77,31 @@ body {
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
+
+@media only screen and (max-device-width: 730px) {
+	.ui.segment.event-list-pagination {
+		background: #c0dffff4;
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+	}
+
+	.ui.button.pagination-button {
+		width: 7em;
+	}
+}
+
+@media only screen and (min-device-width: 730px) {
+	.ui.segment.event-list-pagination {
+		background: #c0dffff4;
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+	}
+
+	.ui.button.pagination-button {
+		width: 5em;
+	}
+}

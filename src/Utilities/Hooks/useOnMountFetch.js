@@ -7,13 +7,15 @@ export function useOnMountFetch(dispatch, actions) {
 			if (Array.isArray(actions)) {
 				for (let i = 0; i < actions.length; i++) {
 					if (!isComplete) {
-						await dispatch(actions[i].action(...actions[i].args))
+						let args = actions[i].args ? [...actions[i].args] : [] // spread args into array if any
+						await dispatch(actions[i].action(...args))
 					}
 				}
 				setIsComplete(true)
 			} else {
 				if (!isComplete) {
-					await dispatch(actions.action(...actions.args))
+					let args = actions.args ? [...actions.args] : [] // spread args into array if any
+					await dispatch(actions.action(...args))
 				}
 				setIsComplete(true)
 			}

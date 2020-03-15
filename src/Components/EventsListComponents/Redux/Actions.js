@@ -9,7 +9,7 @@ import {
 } from "./Types"
 
 export const urls = {
-	eventList: "/events.json",
+	eventList: "events.json",
 	userLocationService: "https://api.ipregistry.co/",
 }
 
@@ -23,15 +23,18 @@ const insertCountryCode = async (dispatch, params) => {
 	}
 }
 
-export function fetchEventList() {
+export function fetchEventList(initial) {
 	return async function(dispatch, getState) {
 		dispatch(setIsLoading(true))
-		console.log(getState())
 
 		let { activeUrlParams } = getState().eventListReducer
-		if (!activeUrlParams.countryCode) {
-			await insertCountryCode(dispatch, activeUrlParams) // load the params with the user's current country by IP Address
-			activeUrlParams = getState().eventListReducer.activeUrlParams
+
+		if (initial) {
+			if (!activeUrlParams.countryCode) {
+				await insertCountryCode(dispatch, activeUrlParams) // load the params with the user's current country by IP Address
+				activeUrlParams = getState().eventListReducer.activeUrlParams
+			}
+			activeUrlParams.sort = "random" // make it not show the same event at 10 venues lol
 		}
 
 		const paramsString = serialize(activeUrlParams) // convert params into an URL string
@@ -56,9 +59,12 @@ export function fetchUserLocation() {
 }
 
 export function setEventListData(data) {
-	return {
-		type: SET_EVENTLIST_DATA,
-		payload: data,
+	return async function(dispatch) {
+		dispatch(setNumberOfPages(data.page.totalPages))
+		dispatch({
+			type: SET_EVENTLIST_DATA,
+			payload: data,
+		})
 	}
 }
 
@@ -95,9 +101,19 @@ export function setActiveUrlParams(paramsObject) {
  * will only update the key value pairs supplied by paramsObject instead of the entire object
  * @param {*} paramsObject key value pairs to update
  */
-export function updateSingleParamActiveUrl(paramsObject) {
-	return {
-		type: ACTIVE_URL_PARAMS_UPDATE_PARAM,
-		payload: paramsObject,
+export function updateActiveUrlParams(paramsObject) {
+	// remove unneeded params
+	return async function(dispatch, getState) {
+		let { activeUrlParams } = getState().eventListReducer
+		dispatch({
+			type: ACTIVE_URL_PARAMS_UPDATE_PARAM,
+			payload: paramsObject,
+		})
+		for (const [key, value] of Object.entries(paramsObject)) {
+			if (!value || value === "" || (key === "countryCode" && value === "All")) {
+				dispatch(setActiveUrlParams({ ...activeUrlParams, [key]: null }))
+				delete paramsObject[key]
+			}
+		}
 	}
 }

@@ -44,6 +44,12 @@ export default function(state = initialState, action) {
 				// ensure apikey is retained no matter what
 				action.payload.apikey = window.REACT_APP_TICKETMASTER_API_KEY
 			}
+			// remove any undefined keys
+			for (const [key, value] of Object.entries(action.payload)) {
+				if (value === null) {
+					delete action.payload[key]
+				}
+			}
 			return {
 				...state,
 				activeUrlParams: action.payload,

@@ -5,7 +5,8 @@ import { EventListItem } from "../EventListItem"
 import { fetchEventList } from "../Redux/Actions"
 import { useOnMountFetch } from "../../../Utilities/Hooks/useOnMountFetch"
 import { useWindowSize } from "../../../Utilities/Hooks/useWindowSize"
-import { EventListSearchMenu } from "../EventListSearchMenu/EventListSearchMenu"
+import { EventListSearchMenu } from "../EventListSearchMenu"
+import { EventListPagination } from "../EventListPagination"
 
 function BigLoader() {
 	const { height } = useWindowSize()
@@ -29,38 +30,42 @@ export function EventList() {
 	const isLoading = useSelector(state => state.eventListReducer.isLoading)
 
 	// automatically call API if component mounts
-	useOnMountFetch(dispatch, { action: fetchEventList, args: null })
+	useOnMountFetch(dispatch, { action: fetchEventList, args: [true] })
 
 	return (
-		<Grid>
+		<>
 			<EventListSearchMenu />
-			<Grid.Row centered>
-				{!isLoading ? (
-					<>
-						<Responsive
-							as={Segment}
-							maxWidth={Responsive.onlyTablet.minWidth - 1}
-							style={{ width: "100%", backgroundColor: "rgb(41, 173, 255)" }}
-						>
-							<Grid.Column width={16}>
-								<FallbackWrapper events={events?._embedded?.events} mobile={true} />
-							</Grid.Column>
-						</Responsive>
-						<Responsive
-							as={Segment}
-							minWidth={Responsive.onlyTablet.minWidth}
-							style={{ width: "80%", backgroundColor: "#406a84" }}
-						>
-							<Grid.Column width={10}>
-								<FallbackWrapper events={events?._embedded?.events} mobile={false} />
-							</Grid.Column>
-						</Responsive>
-					</>
-				) : (
-					<BigLoader />
-				)}
-			</Grid.Row>
-		</Grid>
+			<Grid>
+				<Grid.Row centered>
+					{!isLoading ? (
+						<>
+							<Responsive
+								as={Segment}
+								maxWidth={Responsive.onlyTablet.minWidth - 1}
+								style={{ width: "100%", backgroundColor: "rgb(41, 173, 255)" }}
+							>
+								<Grid.Column width={16}>
+									<FallbackWrapper events={events?._embedded?.events} mobile={true} />
+								</Grid.Column>
+								<EventListPagination mobile={true} />
+							</Responsive>
+							<Responsive
+								as={Segment}
+								minWidth={Responsive.onlyTablet.minWidth}
+								style={{ width: "80%", backgroundColor: "#406a84" }}
+							>
+								<Grid.Column width={10}>
+									<FallbackWrapper events={events?._embedded?.events} mobile={false} />
+								</Grid.Column>
+								<EventListPagination mobile={false} />
+							</Responsive>
+						</>
+					) : (
+						<BigLoader />
+					)}
+				</Grid.Row>
+			</Grid>
+		</>
 	)
 }
 
