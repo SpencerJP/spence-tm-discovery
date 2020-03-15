@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.cd2d3fc6.chunk.css",
-    "main.js": "/static/js/main.ac16ab12.chunk.js",
-    "main.js.map": "/static/js/main.ac16ab12.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.799052ae.js",
-    "runtime-main.js.map": "/static/js/runtime-main.799052ae.js.map",
-    "static/css/2.7df41cd5.chunk.css": "/static/css/2.7df41cd5.chunk.css",
-    "static/js/2.720e90af.chunk.js": "/static/js/2.720e90af.chunk.js",
-    "static/js/2.720e90af.chunk.js.map": "/static/js/2.720e90af.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.6b7a80220bfee5fa1b6c6a08a54583fc.js": "/precache-manifest.6b7a80220bfee5fa1b6c6a08a54583fc.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.7df41cd5.chunk.css.map": "/static/css/2.7df41cd5.chunk.css.map",
-    "static/css/main.cd2d3fc6.chunk.css.map": "/static/css/main.cd2d3fc6.chunk.css.map",
-    "static/js/2.720e90af.chunk.js.LICENSE.txt": "/static/js/2.720e90af.chunk.js.LICENSE.txt",
-    "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff"
+    "main.css": "/spence-tm-discovery/static/css/main.cd2d3fc6.chunk.css",
+    "main.js": "/spence-tm-discovery/static/js/main.9f4a621c.chunk.js",
+    "main.js.map": "/spence-tm-discovery/static/js/main.9f4a621c.chunk.js.map",
+    "runtime-main.js": "/spence-tm-discovery/static/js/runtime-main.0fa28ee1.js",
+    "runtime-main.js.map": "/spence-tm-discovery/static/js/runtime-main.0fa28ee1.js.map",
+    "static/css/2.a6c7c94b.chunk.css": "/spence-tm-discovery/static/css/2.a6c7c94b.chunk.css",
+    "static/js/2.0650d0c4.chunk.js": "/spence-tm-discovery/static/js/2.0650d0c4.chunk.js",
+    "static/js/2.0650d0c4.chunk.js.map": "/spence-tm-discovery/static/js/2.0650d0c4.chunk.js.map",
+    "index.html": "/spence-tm-discovery/index.html",
+    "precache-manifest.79ed49813e8fc9acc342e4862aaebca6.js": "/spence-tm-discovery/precache-manifest.79ed49813e8fc9acc342e4862aaebca6.js",
+    "service-worker.js": "/spence-tm-discovery/service-worker.js",
+    "static/css/2.a6c7c94b.chunk.css.map": "/spence-tm-discovery/static/css/2.a6c7c94b.chunk.css.map",
+    "static/css/main.cd2d3fc6.chunk.css.map": "/spence-tm-discovery/static/css/main.cd2d3fc6.chunk.css.map",
+    "static/js/2.0650d0c4.chunk.js.LICENSE.txt": "/spence-tm-discovery/static/js/2.0650d0c4.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/spence-tm-discovery/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.799052ae.js",
-    "static/css/2.7df41cd5.chunk.css",
-    "static/js/2.720e90af.chunk.js",
+    "static/js/runtime-main.0fa28ee1.js",
+    "static/css/2.a6c7c94b.chunk.css",
+    "static/js/2.0650d0c4.chunk.js",
     "static/css/main.cd2d3fc6.chunk.css",
-    "static/js/main.ac16ab12.chunk.js"
+    "static/js/main.9f4a621c.chunk.js"
   ]
 }
