@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "08d09d4f365781973383f5e7d213d998",
+    "revision": "0ae92090da9c709e12d5f81e268ce474",
     "url": "/spence-tm-discovery/index.html"
   },
   {
-    "revision": "0d6737b623d441dda386",
+    "revision": "ddaaa85ef26d573eb165",
     "url": "/spence-tm-discovery/static/css/2.a6c7c94b.chunk.css"
   },
   {
@@ -12,12 +12,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spence-tm-discovery/static/css/main.6dc3c1b8.chunk.css"
   },
   {
-    "revision": "0d6737b623d441dda386",
-    "url": "/spence-tm-discovery/static/js/2.524d8619.chunk.js"
+    "revision": "ddaaa85ef26d573eb165",
+    "url": "/spence-tm-discovery/static/js/2.0650d0c4.chunk.js"
   },
   {
     "revision": "49c45e15b22906ea61e3b3085d227f58",
-    "url": "/spence-tm-discovery/static/js/2.524d8619.chunk.js.LICENSE.txt"
+    "url": "/spence-tm-discovery/static/js/2.0650d0c4.chunk.js.LICENSE.txt"
   },
   {
     "revision": "9f642eb73e6c279926b0",
