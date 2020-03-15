@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "http://spencerjp.github.io/spence-tm-discovery/static/css/main.6dc3c1b8.chunk.css",
-    "main.js": "http://spencerjp.github.io/spence-tm-discovery/static/js/main.a7cbccef.chunk.js",
-    "main.js.map": "http://spencerjp.github.io/spence-tm-discovery/static/js/main.a7cbccef.chunk.js.map",
-    "runtime-main.js": "http://spencerjp.github.io/spence-tm-discovery/static/js/runtime-main.ec8772df.js",
-    "runtime-main.js.map": "http://spencerjp.github.io/spence-tm-discovery/static/js/runtime-main.ec8772df.js.map",
-    "static/css/2.41b1928f.chunk.css": "http://spencerjp.github.io/spence-tm-discovery/static/css/2.41b1928f.chunk.css",
-    "static/js/2.a2ff45fd.chunk.js": "http://spencerjp.github.io/spence-tm-discovery/static/js/2.a2ff45fd.chunk.js",
-    "static/js/2.a2ff45fd.chunk.js.map": "http://spencerjp.github.io/spence-tm-discovery/static/js/2.a2ff45fd.chunk.js.map",
-    "index.html": "http://spencerjp.github.io/spence-tm-discovery/index.html",
-    "precache-manifest.277de38c21829ba5fdd6289a58bb82c7.js": "http://spencerjp.github.io/spence-tm-discovery/precache-manifest.277de38c21829ba5fdd6289a58bb82c7.js",
-    "service-worker.js": "http://spencerjp.github.io/spence-tm-discovery/service-worker.js",
-    "static/css/2.41b1928f.chunk.css.map": "http://spencerjp.github.io/spence-tm-discovery/static/css/2.41b1928f.chunk.css.map",
-    "static/css/main.6dc3c1b8.chunk.css.map": "http://spencerjp.github.io/spence-tm-discovery/static/css/main.6dc3c1b8.chunk.css.map",
-    "static/js/2.a2ff45fd.chunk.js.LICENSE.txt": "http://spencerjp.github.io/spence-tm-discovery/static/js/2.a2ff45fd.chunk.js.LICENSE.txt",
-    "static/media/semantic.min.css": "http://spencerjp.github.io/spence-tm-discovery/static/media/outline-icons.ef60a4f6.woff"
+    "main.css": "http://spencerjp.github.io/static/css/main.6dc3c1b8.chunk.css",
+    "main.js": "http://spencerjp.github.io/static/js/main.091bf4c5.chunk.js",
+    "main.js.map": "http://spencerjp.github.io/static/js/main.091bf4c5.chunk.js.map",
+    "runtime-main.js": "http://spencerjp.github.io/static/js/runtime-main.a186ef03.js",
+    "runtime-main.js.map": "http://spencerjp.github.io/static/js/runtime-main.a186ef03.js.map",
+    "static/css/2.cf16f121.chunk.css": "http://spencerjp.github.io/static/css/2.cf16f121.chunk.css",
+    "static/js/2.119420a9.chunk.js": "http://spencerjp.github.io/static/js/2.119420a9.chunk.js",
+    "static/js/2.119420a9.chunk.js.map": "http://spencerjp.github.io/static/js/2.119420a9.chunk.js.map",
+    "index.html": "http://spencerjp.github.io/index.html",
+    "precache-manifest.fb24e1dc428cf01675e467a9f260c823.js": "http://spencerjp.github.io/precache-manifest.fb24e1dc428cf01675e467a9f260c823.js",
+    "service-worker.js": "http://spencerjp.github.io/service-worker.js",
+    "static/css/2.cf16f121.chunk.css.map": "http://spencerjp.github.io/static/css/2.cf16f121.chunk.css.map",
+    "static/css/main.6dc3c1b8.chunk.css.map": "http://spencerjp.github.io/static/css/main.6dc3c1b8.chunk.css.map",
+    "static/js/2.119420a9.chunk.js.LICENSE.txt": "http://spencerjp.github.io/static/js/2.119420a9.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "http://spencerjp.github.io/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.ec8772df.js",
-    "static/css/2.41b1928f.chunk.css",
-    "static/js/2.a2ff45fd.chunk.js",
+    "static/js/runtime-main.a186ef03.js",
+    "static/css/2.cf16f121.chunk.css",
+    "static/js/2.119420a9.chunk.js",
     "static/css/main.6dc3c1b8.chunk.css",
-    "static/js/main.a7cbccef.chunk.js"
+    "static/js/main.091bf4c5.chunk.js"
   ]
 }
