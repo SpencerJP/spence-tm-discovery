@@ -2,7 +2,8 @@
 
 This is an event finder using the public Ticketmaster API. This project was made with React, Redux, and Semantic UI React library.
 
-The completed site can be found at https://spencerjp.github.io/spence-tm-discovery/ .
+The compiled site can be found on GitHub pages [here.](https://spencerjp.github.io/spence-tm-discovery/)
+I have also uploaded it to AWS S3 as a static site. It is accessible [here.](http://spence-tm-discovery.s3-website-ap-southeast-2.amazonaws.com/)
 
 ## Installation:
 
