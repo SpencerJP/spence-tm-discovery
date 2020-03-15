@@ -39,7 +39,7 @@ describe("app acceptance tests", () => {
     const button2 = getByText(/About/i)
     button2.click()
     await wait(() => {
-      const aboutElement = getByText(/This React-Redux site made by Spencer Porteous./i)
+      const aboutElement = getByText(/Spence's Event Discovery/i)
       expect(aboutElement).toBeInTheDocument()
 
     }, 1500)

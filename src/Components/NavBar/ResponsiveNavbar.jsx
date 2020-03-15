@@ -8,6 +8,7 @@
 
 import React, { Component } from "react"
 import { Container, Icon, Menu, Sidebar, Responsive } from "semantic-ui-react"
+import { useWindowSize } from "../../Utilities/Hooks/useWindowSize"
 
 const NavBarMobile = ({ children, menuItems, onPusherClick, onToggle, visible, logo, inverted }) => {
 	return (
@@ -43,13 +44,16 @@ const NavBarDesktop = ({ logo, menuItems, inverted }) => {
 	)
 }
 
-const NavBarChildren = ({ children, style }) => (
-	<div style={{ style }}>
-		<Container className="navbar-child" style={{ marginTop: "5em" }}>
-			{children}
-		</Container>
-	</div>
-)
+const NavBarChildren = ({ children, style }) => {
+	const { height } = useWindowSize()
+	return (
+		<div style={{ style }}>
+			<Container className="navbar-child" style={{ marginTop: "5em", minHeight: height + "px" }}>
+				{children}
+			</Container>
+		</div>
+	)
+}
 
 export class ResponsiveNavbar extends Component {
 	state = {
