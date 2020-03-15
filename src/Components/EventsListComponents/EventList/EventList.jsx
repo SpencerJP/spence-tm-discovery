@@ -11,7 +11,7 @@ import { EventListPagination } from "../EventListPagination"
 function BigLoader() {
 	const { height } = useWindowSize()
 	return (
-		<Segment style={{ height: height, width: "80%" }}>
+		<Segment style={{ height: height, width: "80%", zIndex: "999" }}>
 			<Dimmer active inverted>
 				<Loader size="large">Loading</Loader>
 			</Dimmer>
@@ -61,7 +61,11 @@ export function EventList() {
 							</Responsive>
 						</>
 					) : (
-						<BigLoader />
+						<>
+							<BigLoader />
+
+							<EventListPagination mobile={false} />
+						</>
 					)}
 				</Grid.Row>
 			</Grid>
