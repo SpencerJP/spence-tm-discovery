@@ -3,7 +3,7 @@ import fetchMock from "fetch-mock"
 import { render, wait } from '@testing-library/react';
 import { mockData } from "./Components/EventsListComponents/Redux"
 import App from './App';
-import configureStore, { getTestMiddleware, reducerManager } from "./Store"
+import configureStore, { getTestMiddleware } from "./Store"
 
 const mockEventsFetch = (time) => {
 
@@ -27,8 +27,6 @@ describe("app acceptance tests", () => {
     expect(linkElement).toBeInTheDocument();
     const linkElement2 = getByText(/About/i);
     expect(linkElement2).toBeInTheDocument();
-    const linkElement3 = getByText(/Event Lookup/i);
-    expect(linkElement3).toBeInTheDocument();
   });
   
   it("Allows you to switch between tabs", async () => {

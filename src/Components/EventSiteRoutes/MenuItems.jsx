@@ -23,9 +23,6 @@ export const menuItems = [
 	<NavItem key="home" name="home">
 		Home
 	</NavItem>,
-	<NavItem key="eventview" name="eventview">
-		Event Lookup
-	</NavItem>,
 	<NavItem key="about" name="about">
 		About
 	</NavItem>,

@@ -22,8 +22,6 @@ describe("Navbar tests", () => {
 		)
 		const button1 = getByText(/Home/i)
 		expect(button1).toBeInTheDocument()
-		const button2 = getByText(/Event Lookup/i)
-		expect(button2).toBeInTheDocument()
 		const button3 = getByText(/About/i)
 		expect(button3).toBeInTheDocument()
 	})

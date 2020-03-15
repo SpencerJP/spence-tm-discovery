@@ -2,9 +2,8 @@ import React from "react"
 import { Switch, Route } from "react-router-dom"
 import { EventList } from "../EventsListComponents"
 import { About } from "../AboutUs"
-import { EventView } from "../EventView"
 
-export function EventSiteRoutes(props) {
+export function EventSiteRoutes() {
 	return (
 		<Switch>
 			<Route exact path="/">
@@ -12,9 +11,6 @@ export function EventSiteRoutes(props) {
 			</Route>
 			<Route exact path="/home">
 				<EventList />
-			</Route>
-			<Route exact path="/viewevent">
-				<EventView />
 			</Route>
 			<Route exact path="/about">
 				<About />
