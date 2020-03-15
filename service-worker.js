@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/spence-tm-discovery/precache-manifest.79ed49813e8fc9acc342e4862aaebca6.js"
+  "/spence-tm-discovery/precache-manifest.fd9e6a37858a5b36a8e223efcc705310.js"
 );
 
 self.addEventListener('message', (event) => {
