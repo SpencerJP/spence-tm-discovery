@@ -25,7 +25,7 @@ export function EventListPagination(props) {
 		<Segment className="event-list-pagination">
 			<Grid>
 				<Grid.Row centered style={{ textAlign: "center" }} columns={props.mobile ? 3 : undefined}>
-					<Grid.Column width={props.mobile ? undefined : 2}>
+					<Grid.Column width={props.mobile ? undefined : 2} style={{ textAlign: "center" }}>
 						<Button
 							className="pagination-button"
 							color="blue"
@@ -36,13 +36,13 @@ export function EventListPagination(props) {
 						</Button>
 					</Grid.Column>
 
-					<Grid.Column width={props.mobile ? undefined : 2}>
+					<Grid.Column width={props.mobile ? undefined : 2} style={{ textAlign: "center" }}>
 						{/* Add 1 to make the numbers less confusing for users */}
 						<div>
 							Page {currentPage + 1} of {numberOfPages + 1}
 						</div>
 					</Grid.Column>
-					<Grid.Column width={props.mobile ? undefined : 2}>
+					<Grid.Column width={props.mobile ? undefined : 2} style={{ textAlign: "center" }}>
 						<Button
 							className="pagination-button"
 							color="blue"

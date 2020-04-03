@@ -39,7 +39,7 @@ describe("app acceptance tests", () => {
     const button2 = getByText(/About/i)
     button2.click()
     await wait(() => {
-      const aboutElement = getByText(/Spence's Event Discovery/i)
+      const aboutElement = getByText(/Spencer's Event Discovery/i)
       expect(aboutElement).toBeInTheDocument()
 
     }, 1500)

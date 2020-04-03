@@ -13,7 +13,7 @@ export function About(props) {
 				transform: "translate(-50%, -50%)",
 			}}
 		>
-			<Header>Spence's Event Discovery</Header>
+			<Header>Spencer's Event Discovery</Header>
 			<p>
 				This is a project using{" "}
 				<Link

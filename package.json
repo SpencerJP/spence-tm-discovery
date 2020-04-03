@@ -1,7 +1,7 @@
 {
 	"name": "spence-tm-discovery",
 	"version": "0.1.0",
-	"homepage": "https://spencerjp.github.io",
+	"homepage": "/spence-tm-discovery/",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^4.2.4",
@@ -26,6 +26,7 @@
 		"start": "env-cmd -f .env react-scripts start",
 		"build": "env-cmd -f .env react-scripts build",
 		"buildgithubpages": "env-cmd -f .env.githubpagesdeploy react-scripts build",
+		"buildawss3": "env-cmd -f .env.s3 react-scripts build",
 		"test": "env-cmd -f .env react-scripts test",
 		"eject": "react-scripts eject",
 		"predeploy": "env-cmd -f .env.githubpagesdeploy npm run buildgithubpages",

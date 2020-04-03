@@ -117,3 +117,10 @@ export function updateActiveUrlParams(paramsObject) {
 		}
 	}
 }
+
+export function clearParamsAndFetchEventList() {
+	return async function(dispatch) {
+		dispatch(setActiveUrlParams({}))
+		dispatch(fetchEventList(true))
+	}
+}

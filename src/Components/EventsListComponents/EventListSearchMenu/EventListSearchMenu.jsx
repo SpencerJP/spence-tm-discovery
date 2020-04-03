@@ -36,6 +36,8 @@ export function EventListSearchMenu() {
 	useEffect(() => {
 		if (activeUrlParams.keyword) {
 			setKeywordSearch(activeUrlParams.keyword)
+		} else {
+			setKeywordSearch("")
 		}
 	}, [activeUrlParams])
 
@@ -55,9 +57,7 @@ export function EventListSearchMenu() {
 								placeholder="Search by Artist, Event or Venue"
 								value={keywordSearch}
 								onChange={(e, { value }) => {
-									if (value) {
-										setKeywordSearch(value)
-									}
+									setKeywordSearch(value)
 								}}
 							/>
 							<Form.Field
